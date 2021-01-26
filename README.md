@@ -1,2 +1,2 @@
 # CeeThrough
-a quick and lightweight file//web browser for Windows
+a quick and lightweight c++ file//web browser for Windows
