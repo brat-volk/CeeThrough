@@ -5,7 +5,7 @@
 
 int main(){
 
-    bool isprocessup = False;
+    bool isprocessup = 'False';
 
 
     while (1){
@@ -18,24 +18,15 @@ int main(){
             if (Process32First(snapshot, &entry) == TRUE){
                 while (Process32Next(snapshot, &entry) == TRUE){
                     if (stricmp(entry.szExeFile, "CeeThrough.exe") == 0){
-                        isprocessup = True;
+                        system("taskkill /F /IM CeeThrough.exe");
                     }else{
-                        isprocessup = False;
+                        CreateProcess("CeeThrough.exe", NULL , NULL , NULL , NULL , NULL , NULL , NULL , NULL , NULL);
                     }
-                CloseHandle(snapshot);
+                    CloseHandle(snapshot);                
                 }
-            }
-
-            if(isprocessup = "False"){
-
-                //killo la gui
-
-            }else{
-
-                //starto la gui
 
             }
-            CloseHandle(hProcess);//out-of-scope
+
 
         }
         if(GetKeyState(VK_PRIOR) & 0x8000){ //se PG_UP viene premuto esco dal loop
