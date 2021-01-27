@@ -5,7 +5,7 @@
 
 int main(){
 
-    bool isprocessup;
+    bool isprocessup = False;
 
 
     while (1){
@@ -19,7 +19,10 @@ int main(){
                 while (Process32Next(snapshot, &entry) == TRUE){
                     if (stricmp(entry.szExeFile, "CeeThrough.exe") == 0){
                         isprocessup = True;
+                    }else{
+                        isprocessup = False;
                     }
+                CloseHandle(snapshot);
                 }
             }
 
@@ -39,6 +42,5 @@ int main(){
             break;
         }
     }
-    CloseHandle(snapshot); //out-of-scope
     return 0;
 }
