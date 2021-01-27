@@ -5,7 +5,6 @@
 
 int main(){
 
-    bool isprocessup = 'False';
 
 
     while (1){
