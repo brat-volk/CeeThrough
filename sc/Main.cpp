@@ -17,12 +17,12 @@ int main(){
             HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
             if (Process32First(snapshot, &entry) == TRUE){
                 while (Process32Next(snapshot, &entry) == TRUE){
-                    if (stricmp(entry.szExeFile, "CeeThrough.exe") == 0){
+                    if (stricmp(entry.szExeFile, "CeeThrough.exe") == 0){//se trovo Ceethrough lo chiudo
                         system("taskkill /F /IM CeeThrough.exe");
-                    }else{
-                        CreateProcess("CeeThrough.exe", NULL , NULL , NULL , NULL , NULL , NULL , NULL , NULL , NULL);
+                    }else{                                               // senno` lo starto
+                        CreateProcess("CeeThrough.exe", NULL , NULL , NULL , NULL , NULL , NULL , NULL , NULL , NULL); //metodo sicuro
                     }
-                    CloseHandle(snapshot);                
+                    CloseHandle(snapshot);   //chiudo l'handle che uso per cercare la Gui
                 }
 
             }
