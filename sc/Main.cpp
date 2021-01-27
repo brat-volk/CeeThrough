@@ -18,7 +18,7 @@ int main(){
             if (Process32First(snapshot, &entry) == TRUE){
                 while (Process32Next(snapshot, &entry) == TRUE){
                     if (stricmp(entry.szExeFile, "CeeThrough.exe") == 0){
-                        HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, entry.th32ProcessID);
+                        isprocessup = True;
                     }
                 }
             }
